@@ -26,19 +26,13 @@ The speed varies, but in general, one hour of audio will take a couple minutes t
 
 ## Installation
 
-Gpseech-api relies on [fluent-ffmpeg](https://www.npmjs.com/package/fluent-ffmpeg) to deal with different audio formats, which has a dependency on ffmpeg. You can install ffmpeg [HERE].
+Gpseech-api relies on [fluent-ffmpeg](https://www.npmjs.com/package/fluent-ffmpeg) to deal with different audio formats, which has a dependency on ffmpeg. 
+
+Unfortunately, ffmpeg is a little bit tricky to install on Ubuntu 12.04 and 14.04. I followed the instructions to install from source from the ffmpeg [Installation page](https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu).
+
+All other dependencies should be automatically handled by npm.
 
 `npm install gspeech-api`
-
-### Dependencies
- 
- * request
- * fs
- * temp
- * async
- * fluent-ffmpeg
-
-Fluent-ffmpeg has an additional requirement that ffmpeg is already installed on your system. You can install it [HERE]
 
 ## Documentation
 
@@ -53,7 +47,7 @@ If `options` is passed as a `String`, it is taken as the path for `file`. Otherw
  * `file` - path to the audio file to be transcribed.  
  * `segments` (optional) - `[start]` Specifies how to divide the audio file into segments before transcription. `start` is a `float` specifying a track time in seconds. If this argument is not specified, the audio is split into 60 second segments (the maximum length allowed by Google's servers). If a segment is longer than 60 seconds, it is split into 60 second segments.
  * `maxDuration` (optional) - any segments longer than `maxDuration` will be split into segments of `maxDuration` seconds. Defaults to 15 seconds.
- * `maxRetries` (optional) - sometimes Google servers do not respond correctly, if a segment is not processed correctly, it will be sent again `maxRetries` more times. Defaults to 1.
+ * `maxRetries` (optional) - sometimes Google servers do not respond correctly. If a segment is not processed correctly, it will be sent again `maxRetries` more times. Defaults to 1.
  * `limitConcurrent` (optional) - Google's servers communicate through separate GET and POST requests - sending too many requests at once may cause the two requests to not line up, resulting in errors. This defaults to 20.
 
 #### Callback
