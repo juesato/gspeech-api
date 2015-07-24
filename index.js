@@ -132,7 +132,7 @@
 			var start = data.start;
 			var dur = data.duration;
 			var tmpFile = temp.path({suffix: '.flac'});
-
+			
 			// Convert segment of audio file into .flac file
 			ffmpeg()
 				.on('error', function (err) {
@@ -175,7 +175,7 @@
 	    					each less than the total length of your audio"));
 	    			}
 	    			var curStart = segments[i];
-	    			while (duration > 0) {
+	    			while (duration > maxDuration + .001) {
 	    				audioSegments.push({
 	    					'start': curStart,
 	    					'duration': maxDuration
@@ -186,7 +186,7 @@
 	    			audioSegments.push({
 	    				'start': curStart,
 	    				'duration': duration
-	    			});    				
+	    			});
 	    		}
 	    	}
 	    	else {
