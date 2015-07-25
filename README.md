@@ -96,6 +96,14 @@ gspeech.recognize({
 );
 ```
 
+## Contributing
+
+Contributions are always welcome. Feel free to file an issue, we can discuss any proposed changes, and then after the fix is implemented, submit a pull request.
+
+I'm also planning to add in the following features in the future:
+
+ * Intelligently dividing audio clips based on pauses in audio.
+ * Automatically adding punctuation to transcripts
 
 ## Disclaimer
 
