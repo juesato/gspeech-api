@@ -13,7 +13,8 @@ For clips under 60 seconds, usage is simple:
 
 ```javascript
 var gspeech = require('gspeech-api');
-gspeech.recognize('path/to/my/file', function(err, data) {
+var GS = new gspeech({lang: 'fr-FR'}); //Default recognition is in en-US
+GS.recognize('path/to/my/file', function(err, data) {
     if (err) 
         console.error(err);
     console.log("Final transcript is:\n" + data.transcript);
@@ -36,7 +37,7 @@ All other dependencies should be automatically handled by npm.
 
 ## Documentation
 
-This package exposes one main method, `gspeech.recognize(options, callback)` for taking a file and returning an array of timed captions along with a final transcript.
+This package exposes one main method, `GS.recognize(options, callback)` for taking a file and returning an array of timed captions along with a final transcript.
 
 ### Arguments
 
@@ -64,7 +65,7 @@ Callback is a function which will be called after all requests to Google speech 
 #### Getting a timed transcript
 
 ```javascript
-gspeech.recognize('path/to/my/file', function(err, data) {
+GS.recognize('path/to/my/file', function(err, data) {
     if (err) 
         console.error(err);
     for (var i = 0; i < data.timedTranscript.length; i++) {
@@ -81,7 +82,7 @@ If you would like to generate a timed transcript, and know where fragments start
 
 ```javascript
 var segTimes = [0, 15, 20, 30];
-gspeech.recognize({
+GS.recognize({
         'file': 'path/to/my/file',
         'segments': segTimes,
     }, 
