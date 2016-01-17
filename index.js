@@ -79,9 +79,15 @@ function getRequestOptions(options)
 function fullText(timedTranscript)
 {
     var full = '';
+    if(timedTranscript === undefined)
+    {
+        return full;
+    }
+
     for (var i = 0; i < timedTranscript.length; i++)
     {
-        full += timedTranscript[i].text + ' ';
+        if(timedTranscript[i] !== undefined)
+         full += timedTranscript[i].text + ' ';
     }
     return full;
 }
