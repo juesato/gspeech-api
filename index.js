@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 /* jshint node:true */
 var request = require('request');
@@ -281,3 +282,4 @@ gspeech.prototype.recognize = function (options, callback)
 };
 
 module.exports = gspeech;
+})();
