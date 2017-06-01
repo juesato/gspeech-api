@@ -96,15 +96,6 @@ gspeech.recognize({
 );
 ```
 
-## Contributing
-
-Contributions are always welcome. Feel free to file an issue, we can discuss any proposed changes, and then after the fix is implemented, submit a pull request.
-
-I'm also planning to add in the following features in the future:
-
- * Intelligently dividing audio clips based on pauses in audio.
- * Automatically adding punctuation to transcripts
-
 ## Disclaimer
 
-This is not an officially supported Google API, and should only be used for personal purposes. The API is subject to change, and should not be relied upon by any crucial services.
+This is not an officially supported Google API, and should only be used for personal purposes. The API is subject to change, and should not be relied upon by any crucial services. I'm also not actively maintaining this repo - for modifications, the best option is probably to make your own fork.
