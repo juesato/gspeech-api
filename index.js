@@ -27,13 +27,13 @@
 		return parseInt(Math.random() * Math.pow(2, 32)).toString(16);
 	}
 
-	function getRequestOptions() {
+	function getRequestOptions(lang) {
 		var pair = genPair();
 
 		var upstreamUrl = 'https://www.google.com/speech-api/full-duplex/v1/up?';
 		var upstreamParams = urlEncode({
 			'output': 'json',
-			'lang': 'en-us',
+			'lang': lang,
 			'pfilter': 2,
 			'key': API_KEY,
 			'client': 'chromium',
@@ -77,9 +77,10 @@
 				onfinish(new Error("No file is specified. Please specify a file path through params.file"));
 			}
 			var file_name = params.file;
+			var lang = options.lang || "en-us";
 			var source = fs.createReadStream(file_name);
 			source.on('error', function (err) {onfinish(err);});
-			var opts = getRequestOptions();
+			var opts = getRequestOptions(lang);
 			var upstreamOpts = opts[0];
 			var downstreamOpts = opts[1];
 			var postReq = request.post(upstreamOpts, function(error, res, body) {
