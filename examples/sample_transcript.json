@@ -1,0 +1,42 @@
+{
+  "description": "Sample output from gspeech-api library",
+  "audioFile": "welcome_message.mp3",
+  "audioDuration": "45 seconds",
+  "transcriptionDate": "2026-01-01",
+  "result": {
+    "transcript": "Welcome to the Google Speech API demonstration. This library provides an easy way to transcribe audio files using automatic speech recognition. It can handle both short clips under 60 seconds and longer recordings by automatically splitting them into manageable segments. The library supports multiple audio formats through ffmpeg integration and provides both full transcripts and timed segments for your convenience.",
+    "timedTranscript": [
+      {
+        "start": 0,
+        "text": "Welcome to the Google Speech API demonstration.",
+        "duration": 15
+      },
+      {
+        "start": 15,
+        "text": "This library provides an easy way to transcribe audio files using automatic speech recognition.",
+        "duration": 15
+      },
+      {
+        "start": 30,
+        "text": "It can handle both short clips under 60 seconds and longer recordings by automatically splitting them into manageable segments.",
+        "duration": 15
+      },
+      {
+        "start": 45,
+        "text": "The library supports multiple audio formats through ffmpeg integration and provides both full transcripts and timed segments for your convenience.",
+        "duration": 15
+      }
+    ]
+  },
+  "metadata": {
+    "segments": 4,
+    "maxDuration": 15,
+    "language": "en-us",
+    "confidence": "This is a sample - actual API would provide confidence scores"
+  },
+  "notes": [
+    "This is a sample output demonstrating the expected format",
+    "Actual transcription results will vary based on audio quality and content",
+    "The Google Speech API endpoint availability may vary"
+  ]
+}
